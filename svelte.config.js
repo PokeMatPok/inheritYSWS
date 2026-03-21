@@ -22,5 +22,3 @@ const config = {
 };
 
 export default config;
-
-export const prerender = true;
