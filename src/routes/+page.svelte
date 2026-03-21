@@ -34,8 +34,8 @@
 		}
 	});
 
-	function handleJoin() {
-		if (email) {
+	function handleJoin(useEmail = true) {
+		if (email && useEmail) {
 			window.open(
 				`https://forms.fillout.com/t/mVAGqpQTbEus?embed=0&email=${encodeURIComponent(email)}`,
 				'_blank'
@@ -106,7 +106,7 @@
 			<div class="buttons">
 				<div>
 					<input type="email" placeholder="Enter your email" class="cta-input" bind:value={email} />
-					<button class="cta" onclick={handleJoin}> Join </button>
+					<button class="cta" onclick={() => handleJoin()}> Join </button>
 				</div>
 				<button hidden class="demo">Watch Demo</button>
 			</div>
@@ -125,9 +125,11 @@
 			</div>
 
 			<div class="page-content">
+				<img alt="01 Icon" src="/01.svg" style="width: 50px; height: 50px;" />
 				<h3>Browse old projects</h3>
 				<p>
-					Search through our archive of abandoned projects. Find one that sparks your interest and get to know it.
+					Search through our archive of abandoned projects. Find one that sparks your interest and
+					get to know it.
 				</p>
 			</div>
 		</div>
@@ -138,9 +140,11 @@
 	<div>
 		<div class="bottom">
 			<div class="page-content">
+				<img alt="02 Icon" src="/02.svg" style="width: 50px; height: 50px;" />
 				<h3>Claim it</h3>
 				<p>
-					Found something? Claim it. Set your prize goal upfront — the bigger the contribution, the better the reward.
+					Found something? Claim it. Set your prize goal upfront — the bigger the contribution, the
+					better the reward.
 				</p>
 			</div>
 			<div class="image-wrapper">
@@ -157,9 +161,11 @@
 				<img src="/build.svg" alt="Build Graphic" class="explain-image" />
 			</div>
 			<div class="page-content">
+				<img alt="03 Icon" src="/03.svg" style="width: 50px; height: 50px;" />
 				<h3>Build</h3>
 				<p>
-					Fork it. Understand it. Make it better. Track your time with Hackatime and build something the original author would be proud of.
+					Fork it. Understand it. Make it better. Track your time with Hackatime and build something
+					the original author would be proud of.
 				</p>
 			</div>
 		</div>
@@ -170,9 +176,11 @@
 	<div>
 		<div class="bottom">
 			<div class="page-content">
+				<img alt="04 Icon" src="/04.svg" style="width: 50px; height: 50px;" />
 				<h3>Submit & Review</h3>
 				<p>
-					Open a pull request. Peers who've worked on similar projects review your code — real feedback, real open source workflow.
+					Open a pull request. Peers who've worked on similar projects review your code — real
+					feedback, real open source workflow.
 				</p>
 			</div>
 			<div class="image-wrapper">
@@ -186,17 +194,49 @@
 	<div>
 		<div class="bottom">
 			<div class="image-wrapper">
-				<img src="/prize.svg" alt="Prize Graphic" class="explain-image" />
+				<img src="/prize.svg" alt="Prize Graphic" class="explain-image prize-image" />
 			</div>
 			<div class="page-content">
+				<img alt="05 Icon" src="/05.svg" style="width: 50px; height: 50px; fill: green;" />
 				<h3>Receive your prize</h3>
 				<p>
-					PR merged. Project lives again. Hack Club ships the prize you set as your goal on day one. You earned it.
+					PR merged. Project lives again. Hack Club ships the prize you set as your goal on day one.
+					You earned it.
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
+
+<section class="page">
+	<div>
+		<div class="bottom">
+			<div class="page-content">
+				<h3>Inherit</h3>
+				<p>
+					The project is reborn. The original author can see your work, learn from it, and maybe
+					even claim it back to build on top of your improvements.
+				</p>
+			</div>
+			<div class="image-wrapper">
+				<img src="/inherit-logo.svg" alt="Inherit Graphic" class="explain-image" />
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="buttons">
+		<div>
+			<button class="cta" onclick={() => handleJoin(false)}> Join </button>
+		</div>
+	</div>
+	<div
+		style="text-align: center; padding: 2rem; color: var(--text-muted); font-family: var(--font);"
+	>
+		&copy; {new Date().getFullYear()} Hack Club. All rights reserved.
+	</div>
+</footer>
 
 <style lang="scss">
 	@font-face {
@@ -228,13 +268,13 @@
 	}
 
 	:root {
-		--bg: #0d0b09;
-		--bg-alt: #120f0c;
-		--brown-dark: #7e471f;
-		--brown-mid: #aa5f27;
-		--brown-light: #ffbf8f;
-		--text: #f5e6d0;
-		--text-muted: #a08060;
+		--bg: #c29a72;
+		--bg-alt: #6b5035;
+		--brown-dark: #3d2008;
+		--brown-mid: #bb723b;
+		--brown-light: #fcc296;
+		--text: #1a0f05;
+		--text-muted: #4a2e14;
 		--font: 'Phantom Sans', sans-serif;
 	}
 
@@ -260,7 +300,7 @@
 		filter: blur(0);
 	}
 
-	// ── Hero ──────────────────────────────────────────────────
+	// hero
 	.hero {
 		background-color: var(--bg);
 		position: relative;
@@ -383,30 +423,13 @@
 		background-position: 0 var(--scroll-percent, 0%);
 	}
 
-	.orpheus-image {
-		position: absolute;
-		bottom: var(--scroll-animation-value-bottom, 0);
-		scale: clamp(1, var(--scroll-animation-value-scale, 1), 2);
-		right: var(--scroll-animation-value-right, 10px);
-		border: 0;
-		width: clamp(400px, 40vw, 700px);
-		z-index: 999;
-	}
-
-	// ── Step sections ─────────────────────────────────────────
+	// sections
 	section:not(.hero) {
 		background-color: var(--bg);
 		border-top: 1px solid rgba(126, 71, 31, 0.15);
 
 		&:nth-child(even) {
 			background-color: var(--bg-alt);
-		}
-
-		&:nth-of-type(2) {
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
-			border: solid 1px var(--brown-dark);
-			border-bottom: none;
 		}
 	}
 
@@ -419,17 +442,26 @@
 		gap: 2rem;
 		justify-content: space-around;
 		align-items: center;
+		background: url('/bg.svg') center / cover no-repeat;
 
 		> div {
 			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 		}
 
 		.top {
-			width: 100%;
-			padding: 6vh 0 2vh;
+			width: 70%;
+			padding: 10vh 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 15%;
+			background: url('/box2.svg') center / cover no-repeat;
 
 			h2 {
 				font-size: clamp(1.8rem, 4vw, 3rem);
@@ -469,8 +501,22 @@
 
 			.explain-image {
 				width: 100%;
-				max-width: 460px;
+				max-width: 600px;
 				border: 0;
+			}
+
+			.prize-image {
+				position: absolute;
+				bottom: 0;
+				height: 90vh;
+				padding-top: 20vh;
+				width: unset !important;
+				max-width: unset !important;
+				border: 0;
+				margin-top: 2rem;
+				@media (min-width: 768px) {
+					margin-top: 0;
+				}
 			}
 		}
 
@@ -503,4 +549,21 @@
 			flex-direction: row-reverse;
 		}
 	}
+
+	footer {
+		background-color: var(--bg);
+		border-top: 1px solid rgba(126, 71, 31, 0.15);
+	}
+	footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: url('/footer-tile.svg') repeat-x;
+    background-size: auto 100%;
+    opacity: 0.6;
+    z-index: 0;
+}
 </style>
