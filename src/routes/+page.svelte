@@ -117,6 +117,98 @@
 <section class="page">
 	<div>
 		<div class="top">
+			<h2>What's Inherit?</h2>
+		</div>
+		<div class="bottom">
+			<div class="image-wrapper">
+				<img
+					src="/about.svg"
+					alt="Orpheus questioning Inherit"
+					class="explain-image"
+					style="transform: translateY(-10%);"
+				/>
+			</div>
+
+			<div class="page-content">
+				<h3>Reviving other projects</h3>
+				<p>
+					Many Hack Club Members produce a lot of innovative and exciting projects. But sometimes,
+					life gets in the way, and these projects are left without the attention they deserve.
+					Inherit gives you the chance to breathe new life into these projects, making them your own
+					and sharing them with the world.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="page">
+	<div>
+		<div class="bottom prize-bottom">
+			<div class="page-content">
+				<h3>What do you get?</h3>
+				<p>
+					By contributing to those projects you not only get the satisfaction of reviving a Projects
+					but also some cool rewards from Hack Club.
+				</p>
+			</div>
+
+			<div class="prize-counter">
+				<div class="carousel-item">
+					<div class="carousel-image-wrapper">
+						<img src="/badger.png" alt="Github Badger" class="carousel-image" />
+					</div>
+					<div class="carousel-content">
+						<h4>Github Badger 2350</h4>
+						<p>
+							Your personal Hackable Conference Badge. This will definitly make you the coolest
+							hacker around!
+						</p>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<div class="carousel-image-wrapper">
+						<img src="/cards.png" alt="Github Cards" class="carousel-image" />
+					</div>
+					<div class="carousel-content">
+						<h4>Github Cards</h4>
+						<p>Some cool cards for your next Poker Night.</p>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<div class="carousel-image-wrapper">
+						<img src="/stickers.png" alt="Github Cards" class="carousel-image" />
+					</div>
+					<div class="carousel-content">
+						<h4>Hack Club Stickers</h4>
+						<p>
+							Some cool stickers to decorate your laptop and show off your open source contributions
+							to the world.
+						</p>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<div class="carousel-image-wrapper">
+						<img src="/charity.svg" alt="Charity Icon" class="carousel-image" />
+					</div>
+					<div class="carousel-content">
+						<h4>Donate to Charity</h4>
+						<p>
+							Spend your prize on something good. We will donate the equivalent amount of your prize to a charity of your choice to a charity of your choice found on <a href="https://www.every.org/search" target="_blank">Every.org</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="page">
+	<div>
+		<div class="top">
 			<h2>How It Works</h2>
 		</div>
 		<div class="bottom">
@@ -125,7 +217,7 @@
 			</div>
 
 			<div class="page-content">
-				<img alt="01 Icon" src="/01.svg" style="width: 50px; height: 50px;" />
+				<img alt="01 Icon" src="/01.svg" class="number-image" />
 				<h3>Browse old projects</h3>
 				<p>
 					Search through our archive of abandoned projects. Find one that sparks your interest and
@@ -140,8 +232,8 @@
 	<div>
 		<div class="bottom">
 			<div class="page-content">
-				<img alt="02 Icon" src="/02.svg" style="width: 50px; height: 50px;" />
-				<h3>Claim it</h3>
+				<img alt="02 Icon" src="/02.svg" class="number-image" />
+				<h3>Claim your Project</h3>
 				<p>
 					Found something? Claim it. Set your prize goal upfront — the bigger the contribution, the
 					better the reward.
@@ -161,7 +253,7 @@
 				<img src="/build.svg" alt="Build Graphic" class="explain-image" />
 			</div>
 			<div class="page-content">
-				<img alt="03 Icon" src="/03.svg" style="width: 50px; height: 50px;" />
+				<img alt="03 Icon" src="/03.svg" class="number-image" />
 				<h3>Build</h3>
 				<p>
 					Fork it. Understand it. Make it better. Track your time with Hackatime and build something
@@ -176,7 +268,7 @@
 	<div>
 		<div class="bottom">
 			<div class="page-content">
-				<img alt="04 Icon" src="/04.svg" style="width: 50px; height: 50px;" />
+				<img alt="04 Icon" src="/04.svg" class="number-image" />
 				<h3>Submit & Review</h3>
 				<p>
 					Open a pull request. Peers who've worked on similar projects review your code — real
@@ -197,7 +289,7 @@
 				<img src="/prize.svg" alt="Prize Graphic" class="explain-image prize-image" />
 			</div>
 			<div class="page-content">
-				<img alt="05 Icon" src="/05.svg" style="width: 50px; height: 50px; fill: green;" />
+				<img alt="05 Icon" src="/05.svg" class="number-image" />
 				<h3>Receive your prize</h3>
 				<p>
 					PR merged. Project lives again. Hack Club ships the prize you set as your goal on day one.
@@ -210,32 +302,106 @@
 
 <section class="page">
 	<div>
+		<div class="top">
+			<h2>FAQ</h2>
+			<p>(Forked And Questioned)</p>
+		</div>
 		<div class="bottom">
-			<div class="page-content">
-				<h3>Inherit</h3>
-				<p>
-					The project is reborn. The original author can see your work, learn from it, and maybe
-					even claim it back to build on top of your improvements.
-				</p>
-			</div>
 			<div class="image-wrapper">
-				<img src="/inherit-logo.svg" alt="Inherit Graphic" class="explain-image" />
+				<img src="/faq.svg" alt="Frequently Asked Questions Graphic" class="explain-image" />
+			</div>
+
+			<div class="page-content">
+				<details>
+					<summary>Who can join?</summary>
+					<p>
+						Inherit is open to all Hack Club Members. Whether you're a seasoned coder or just
+						starting out, if you have a passion for open source and a desire to learn, you're
+						welcome to join.
+					</p>
+				</details>
+				<details>
+					<summary>What counts as a meaningful contribution?</summary>
+					<p>
+						Any contribution adding a real usable feature, rewriting large portions of the codebase,
+						or reworking a core concept counts. Typo fixes, README edits, and minor style changes
+						don't count — we're looking for work that moves the project forward.
+					</p>
+				</details>
+				<details>
+					<summary>What if the original author doesn't merge my PR?</summary>
+					<p>
+						If the original author does not merge your PR in a few days, we still value and evaluate
+						your contribution the same, you will still receive your prize. The original author can
+						still merge your changes later. We have a team of staff who will review your work
+						independently.
+					</p>
+				</details>
+				<details>
+					<summary>Can I work in a language I'm still learning?</summary>
+					<p>
+						If you're still learning a language, our recommendation engine will match you with more
+						beginner-friendly projects. We encourage you to challenge yourself, but we'll make sure
+						the project is a good fit.
+					</p>
+				</details>
+				<details>
+					<summary>How does Hackatime work?</summary>
+					<p>
+						Hackatime helps you track your Project time, it quietly runs in your IDE and tracks your
+						coding time automatically. Install it once and forget about it.
+					</p>
+				</details>
+				<details>
+					<summary>When do I get my prize?</summary>
+					<p>
+						You get your prize shipped as soon as you complete your goal, we will try to cover all
+						taxes but there may still arise some taxes to specific countries, that we simply can not
+						cover. Shipping is free worldwide.
+					</p>
+				</details>
 			</div>
 		</div>
 	</div>
 </section>
 
 <footer>
-	<div class="buttons">
-		<div>
-			<button class="cta" onclick={() => handleJoin(false)}> Join </button>
+	<div class="footer-content">
+		<a href="https://hackclub.com/"
+			><img
+				style="position: relative; top: 0; left: 0; border: 0; width: 256px; z-index: 999;"
+				src="https://assets.hackclub.com/flag-orpheus-left.svg"
+				alt="Hack Club"
+			/></a
+		>
+		<div class="footer-cta">
+			<img src="/inherit-logo.svg" alt="Inherit Logo" />
+			<h2>Rethink. Rebuild. Reship.</h2>
+			<span>(and repeat)</span>
+
+			<div class="buttons">
+				<div>
+					<button class="cta" onclick={() => handleJoin(false)}> Join </button>
+				</div>
+			</div>
 		</div>
+		<span
+			style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; text-align: center;"
+		>
+			Already joined? <br /> We'll reach out when the program launches!
+		</span>
 	</div>
 	<div
 		style="text-align: center; padding: 2rem; color: var(--text-muted); font-family: var(--font);"
 	>
-		&copy; {new Date().getFullYear()} Hack Club. All rights reserved.
+		Inherit is a Hack Club YSWS &middot; Made with &#10084; by <a
+			href="https://hackclub.enterprise.slack.com/user/@U0A2L4NMA9X"
+			target="_blank">Matthias Schreiber</a
+		>
+		&middot; <a href="https://github.com/PokeMatPok/inheritYSWS" target="_blank">Github</a>
 	</div>
+
+	<div class="footer-tiles"></div>
 </footer>
 
 <style lang="scss">
@@ -292,8 +458,8 @@
 		justify-content: space-between;
 		align-items: center;
 
-		filter: blur(5px);
-		transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+		filter: blur(0);
+		transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
 	section:global(.intersection) {
@@ -305,6 +471,7 @@
 		background-color: var(--bg);
 		position: relative;
 		overflow: hidden;
+		height: 100vh;
 
 		&::after {
 			content: '';
@@ -372,23 +539,6 @@
 				gap: 1rem;
 				color: var(--text-muted);
 
-				button {
-					font-family: var(--font);
-					background-color: var(--brown-mid);
-					border: solid 2px var(--brown-mid);
-					color: var(--text);
-					border-radius: 30px;
-					font-size: 1rem;
-					padding: 0.5rem 1.2rem;
-					cursor: pointer;
-
-					&:hover {
-						background-color: var(--brown-light);
-						border-color: var(--brown-light);
-						color: #1a0f05;
-					}
-				}
-
 				.cta-input {
 					font-family: var(--font);
 					border: solid 2px var(--brown-dark);
@@ -423,6 +573,23 @@
 		background-position: 0 var(--scroll-percent, 0%);
 	}
 
+	button {
+		font-family: var(--font);
+		background-color: var(--brown-mid);
+		border: solid 2px var(--brown-mid);
+		color: var(--text);
+		border-radius: 30px;
+		font-size: 1rem;
+		padding: 0.5rem 1.2rem;
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--brown-light);
+			border-color: var(--brown-light);
+			color: #1a0f05;
+		}
+	}
+
 	// sections
 	section:not(.hero) {
 		background-color: var(--bg);
@@ -440,28 +607,33 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		justify-content: space-around;
+		justify-content: center;
+		padding-top: 0;
 		align-items: center;
 		background: url('/bg.svg') center / cover no-repeat;
 
 		> div {
 			width: 100%;
+			height: 100%;
+			min-height: calc(120vh - 8vh);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: space-between;
+			padding-top: 0;
 		}
 
 		.top {
 			width: 70%;
-			padding: 10vh 0;
+			padding: 6vh 4rem 4vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			position: absolute;
-			top: 0;
-			left: 15%;
-			background: url('/box2.svg') center / cover no-repeat;
+			flex-direction: column;
+			position: relative;
+			background: url('/box2.svg') center / 100% 100% no-repeat;
+			margin: 0 auto;
+			align-self: stretch;
 
 			h2 {
 				font-size: clamp(1.8rem, 4vw, 3rem);
@@ -489,7 +661,20 @@
 			gap: 4rem;
 			flex-wrap: wrap;
 			box-sizing: border-box;
-			padding-bottom: 6vh;
+			padding: 4vh 0 6vh;
+			flex: 1;
+			align-items: center;
+		}
+
+		.prize-bottom {
+			padding-top: 20px;
+			flex-direction: column;
+		}
+
+		.number-image {
+			width: 100px;
+			height: 100px;
+			margin-bottom: 1rem;
 		}
 
 		.image-wrapper {
@@ -531,13 +716,13 @@
 			gap: 1rem;
 
 			h3 {
-				font-size: clamp(1.4rem, 3vw, 2.2rem);
+				font-size: clamp(2rem, 4vw, 2.8rem);
 				margin: 0;
 				color: var(--brown-light);
 			}
 
 			p {
-				font-size: 1.1rem;
+				font-size: 1.6rem;
 				margin: 0;
 				color: var(--text-muted);
 				line-height: 1.7;
@@ -548,22 +733,115 @@
 		&.flip .bottom {
 			flex-direction: row-reverse;
 		}
+
+		.prize-counter {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 2rem;
+
+			.carousel-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background: url('/boxCarousel.svg') center / 100% 100% no-repeat;
+				width: 400px;
+				height: 500px;
+				box-sizing: border-box;
+				gap: 1rem;
+				padding: 1rem 2rem;
+
+				.carousel-image-wrapper {
+					width: 150px;
+					height: 150px;
+					border-radius: 50%;
+					overflow: hidden;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 50px;
+
+					.carousel-image {
+						width: 100%;
+						height: auto;
+						border-radius: 50%;
+						border: solid 4px var(--brown-dark);
+					}
+				}
+
+				.carousel-content {
+					text-align: center;
+
+					h4 {
+						font-size: 1.5rem;
+						margin: 0;
+						color: var(--brown-mid);
+					}
+
+					p {
+						font-size: 1rem;
+						margin: 0;
+						color: var(--text-muted);
+						max-width: 200px;
+					}
+				}
+			}
+		}
 	}
 
 	footer {
 		background-color: var(--bg);
 		border-top: 1px solid rgba(126, 71, 31, 0.15);
+
+		.footer-tiles {
+			position: relative;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			background: url('/footer-tile.svg') repeat-x;
+			background-size: auto 100%;
+			opacity: 0.6;
+			z-index: 0;
+		}
+
+		.footer-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-sizing: border-box;
+			position: relative;
+			z-index: 1;
+
+			.footer-cta {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5rem;
+
+				img {
+					width: clamp(200px, 20vw, 260px);
+				}
+
+				h2 {
+					font-size: 1.5rem;
+					margin: 0;
+					color: var(--text);
+				}
+
+				span {
+					font-size: 1rem;
+					color: var(--text-muted);
+				}
+			}
+			.buttons {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				padding: 2rem 10vw;
+			}
+		}
 	}
-	footer::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: url('/footer-tile.svg') repeat-x;
-    background-size: auto 100%;
-    opacity: 0.6;
-    z-index: 0;
-}
 </style>
