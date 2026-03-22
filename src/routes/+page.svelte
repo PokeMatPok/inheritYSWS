@@ -112,6 +112,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="hero-tiles"></div>
 </section>
 
 <section class="page">
@@ -132,10 +133,10 @@
 			<div class="page-content">
 				<h3>Reviving other projects</h3>
 				<p>
-					Many Hack Club Members produce a lot of innovative and exciting projects. But sometimes,
-					life gets in the way, and these projects are left without the attention they deserve.
-					Inherit gives you the chance to breathe new life into these projects, making them your own
-					and sharing them with the world.
+					Someone built their project at 2am with Excitement. Then the hackathon ended, School started again,
+					and the repo went quiet. But the code and the idea of the author are still there. Inherit
+					gives abandoned Hack Club projects a second life and rewards the teen who brings them
+					back
 				</p>
 			</div>
 		</div>
@@ -148,7 +149,7 @@
 			<div class="page-content">
 				<h3>What do you get?</h3>
 				<p>
-					By contributing to those projects you not only get the satisfaction of reviving a Projects
+					By contributing to those projects you not only get the satisfaction of reviving a Project
 					but also some cool rewards from Hack Club.
 				</p>
 			</div>
@@ -161,9 +162,12 @@
 					<div class="carousel-content">
 						<h4>Github Badger 2350</h4>
 						<p>
-							Your personal Hackable Conference Badge. This will definitly make you the coolest
+							Your personal Hackable Conference Badge. This will definitely make you the coolest
 							hacker around!
 						</p>
+						<span class="requirements">
+							10+ hours of tracked time &middot; 1+ meaningful contribution
+						</span>
 					</div>
 				</div>
 
@@ -174,6 +178,27 @@
 					<div class="carousel-content">
 						<h4>Github Cards</h4>
 						<p>Some cool cards for your next Poker Night.</p>
+						<span class="requirements">
+							5+ hours of tracked time &middot; 1+ meaningful contribution
+						</span>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<div class="carousel-image-wrapper">
+						<img
+							src="/working_in_public.jpg"
+							alt="Working in Public Cover"
+							class="carousel-image"
+						/>
+					</div>
+					<div class="carousel-content">
+						<h4>Working in Public</h4>
+						<p>
+							An exciting book about the history and modern culture of open source, written by Nadia
+							Asparouhova.
+						</p>
+						<span class="requirements"> 5+ hours of tracked time </span>
 					</div>
 				</div>
 
@@ -187,6 +212,7 @@
 							Some cool stickers to decorate your laptop and show off your open source contributions
 							to the world.
 						</p>
+						<span class="requirements"> 2+ hours of tracked time </span>
 					</div>
 				</div>
 
@@ -197,8 +223,16 @@
 					<div class="carousel-content">
 						<h4>Donate to Charity</h4>
 						<p>
-							Spend your prize on something good. We will donate the equivalent amount of your prize to a charity of your choice to a charity of your choice found on <a href="https://www.every.org/search" target="_blank">Every.org</a>.
+							Spend your prize on something good. We will donate the equivalent amount of your prize
+							to a charity of your choice to a charity of your choice found on <a
+								href="https://www.every.org/search"
+								target="_blank">Every.org</a
+							>.
 						</p>
+						<span class="requirements">
+							Scales with your contribution, starting at 5+ hours of tracked time &middot; 1+
+							meaningful contribution
+						</span>
 					</div>
 				</div>
 			</div>
@@ -360,6 +394,14 @@
 						cover. Shipping is free worldwide.
 					</p>
 				</details>
+				<div>
+					<span>Other questions?</span>
+					<a href="/manual#faq">Check the manual</a>
+					<span>or</span>
+					<a href="https://hackclub.enterprise.slack.com/user/@U0A2L4NMA9X" target="_blank"
+						>Reach out</a
+					>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -385,11 +427,15 @@
 				</div>
 			</div>
 		</div>
-		<span
-			style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; text-align: center;"
-		>
-			Already joined? <br /> We'll reach out when the program launches!
-		</span>
+		<div>
+			<p>Read about implementation and concept details of Inherit:</p>
+
+			<div class="buttons">
+				<button>
+					<a href="/manual" class="manual-link">Read the Manual</a>
+				</button>
+			</div>
+		</div>
 	</div>
 	<div
 		style="text-align: center; padding: 2rem; color: var(--text-muted); font-family: var(--font);"
@@ -483,6 +529,18 @@
 			height: 260px;
 			background: radial-gradient(ellipse, rgba(170, 95, 39, 0.2) 0%, transparent 70%);
 			pointer-events: none;
+		}
+
+		.hero-tiles {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			background: url('/footer-tile.svg') repeat-x;
+			background-size: auto 100%;
+			opacity: 0.6;
+			z-index: 999;
 		}
 
 		.hero-content {
@@ -728,6 +786,47 @@
 				line-height: 1.7;
 				max-width: 480px;
 			}
+
+			span {
+				font-size: 1rem;
+				color: var(--text-muted);
+				margin-right: 0.5rem;
+			}
+
+			a {
+				font-size: 1rem;
+				color: var(--brown-mid);
+				text-decoration: none;
+				padding: 0 5px;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			details {
+				width: 100%;
+				max-width: 600px;
+				border: solid 2px var(--brown-dark);
+				border-radius: 10px;
+				padding: 1rem;
+				background-color: transparent;
+				color: var(--text);
+				font-size: 1.1rem;
+
+				summary {
+					cursor: pointer;
+					outline: none;
+					font-weight: bold;
+					color: var(--brown-mid);
+				}
+
+				p {
+					margin-top: 0.5rem;
+					font-size: 1rem;
+					color: var(--text-muted);
+				}
+			}
 		}
 
 		&.flip .bottom {
@@ -739,6 +838,12 @@
 			align-items: center;
 			gap: 1rem;
 			margin-top: 2rem;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1.5rem;
+			max-width: 900px;
+			margin: 0 auto;
 
 			.carousel-item {
 				display: flex;
@@ -750,6 +855,9 @@
 				box-sizing: border-box;
 				gap: 1rem;
 				padding: 1rem 2rem;
+
+				flex: 0 0 calc(33% - 1rem); // 3 per row
+				min-width: 220px;
 
 				.carousel-image-wrapper {
 					width: 150px;
