@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	let scrollTop = $state(0);
@@ -70,11 +71,23 @@
 	/></a
 >
 
+<div class="manual-sticky">
+	<a href="/manual">Read the Manual</a>
+</div>
+
 <div>
 	<div
-		style="position: absolute; top: 0; right: 10px; border: 0; width: 256px; z-index: 999; transform: scaleX(-1);"
+		style="position: absolute; top: 330px; left: 370px; border: 0; width: 160px; z-index: 999; transform: scaleX(-1);"
 	>
-		<img src="/star.svg" alt="Hack Club" />
+		<img src="/star.svg" alt="Star Left" />
+	</div>
+</div>
+
+<div>
+	<div
+		style="position: absolute; top: 420px; right: 340px; border: 0; width: 170px; z-index: 999; transform: scaleX(-1) rotate(180deg);"
+	>
+		<img src="/star.svg" alt="Star Right" />
 	</div>
 </div>
 
@@ -138,7 +151,7 @@
 			<div class="page-content">
 				<h3>What do you get?</h3>
 				<p>
-					By contributing to those projects you not only get the satisfaction of reviving a Project
+					By contributing to those projects you not only get the satisfaction of reviving a project
 					but also some cool rewards from Hack Club.
 				</p>
 			</div>
@@ -187,7 +200,9 @@
 							An exciting book about the history and modern culture of open source, written by Nadia
 							Asparouhova.
 						</p>
-						<span class="requirements"> 5+ hours of tracked time </span>
+						<span class="requirements">
+							5+ hours of tracked time &middot; 1+ meaningful contribution
+						</span>
 					</div>
 				</div>
 
@@ -213,14 +228,13 @@
 						<h4>Donate to Charity</h4>
 						<p>
 							Spend your prize on something good. We will donate the equivalent amount of your prize
-							to a charity of your choice to a charity of your choice found on <a
+							to a charity of your choice found on <a
 								href="https://www.every.org/search"
 								target="_blank">Every.org</a
 							>.
 						</p>
 						<span class="requirements">
-							Scales with your contribution, starting at 5+ hours of tracked time &middot; 1+
-							meaningful contribution
+							starting at 5+ hours &middot; 1+ meaningful contribution
 						</span>
 					</div>
 				</div>
@@ -371,7 +385,7 @@
 				<details>
 					<summary>How does Hackatime work?</summary>
 					<p>
-						Hackatime helps you track your Project time, it quietly runs in your IDE and tracks your
+						Hackatime helps you track your project time, it quietly runs in your IDE and tracks your
 						coding time automatically. Install it once and forget about it.
 					</p>
 				</details>
@@ -413,18 +427,11 @@
 			<div class="buttons">
 				<div>
 					<button class="cta" onclick={() => handleJoin(false)}> Join </button>
+					<button onclick={() => goto('/manual')}> Read the Manual </button>
 				</div>
 			</div>
 		</div>
-		<div>
-			<p>Read about implementation and concept details of Inherit:</p>
-
-			<div class="buttons">
-				<button>
-					<a href="/manual" class="manual-link">Read the Manual</a>
-				</button>
-			</div>
-		</div>
+		<div style="flex: 0.2;"></div>
 	</div>
 	<div
 		style="text-align: center; padding: 2rem; color: var(--text-muted); font-family: var(--font);"
@@ -540,6 +547,7 @@
 			justify-content: center;
 			position: relative;
 			z-index: 1;
+			color: var(--text);
 
 			.tag {
 				font-family: var(--font);
@@ -563,7 +571,7 @@
 				.highlight {
 					position: relative;
 					display: inline-block;
-					color: var(--brown-light);
+					color: var(--text-muted);
 				}
 
 				.highlight::before {
@@ -629,6 +637,12 @@
 		font-size: 1rem;
 		padding: 0.5rem 1.2rem;
 		cursor: pointer;
+		box-shadow: 3px 3px 0px var(--brown-dark);
+		margin: 0 10px;
+		transition:
+				background-color 0.15s ease,
+				border-color 0.15s ease,
+				color 0.15s ease;
 
 		&:hover {
 			background-color: var(--brown-light);
@@ -667,7 +681,7 @@
 			background: url('/bg_comment.svg') center / cover no-repeat !important;
 		}
 
-		&:nth-child(10) {
+		&:nth-child(11) {
 			background: url('/bg_faq.svg') center / cover no-repeat !important;
 		}
 
@@ -875,6 +889,7 @@
 						height: auto;
 						border-radius: 50%;
 						border: solid 4px var(--brown-dark);
+						background: #fff;
 					}
 				}
 
@@ -951,6 +966,39 @@
 				justify-content: center;
 				align-items: center;
 				padding: 2rem 10vw;
+
+				button {
+					box-shadow: 3px 3px 0px var(--brown-dark);
+					transition:
+						background-color 0.15s ease,
+						border-color 0.15s ease,
+						color 0.15s ease;
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+
+	.manual-sticky {
+		position: fixed;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		z-index: 999;
+
+		a {
+			font-family: var(--font);
+			background-color: var(--brown-mid);
+			color: var(--text);
+			border-radius: 30px;
+			padding: 0.8rem 1.5rem;
+			font-size: 0.95rem;
+			text-decoration: none;
+			box-shadow: 3px 3px 0px var(--brown-dark);
+			transition: transform 0.15s ease;
+			display: block;
+
+			&:hover {
+				transform: translateY(-2px);
 			}
 		}
 	}
