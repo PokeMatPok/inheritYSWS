@@ -15,25 +15,6 @@
 		}
 	});
 
-	$effect(() => {
-		if (scrollTop > 0) {
-			const el = document.querySelector('.orpheus-image') as HTMLElement;
-
-			const percent = Math.min(scrollPercent, 100);
-
-			if (scrollTop <= clientHeight) {
-				el?.style.setProperty(
-					'--scroll-animation-value-bottom',
-					`${percent * 0.01 * clientHeight}px`
-				);
-
-				el?.style.setProperty('--scroll-animation-value-right', `${percent * 0.02 * 500}px`);
-
-				el?.style.setProperty('--scroll-animation-value-scale', `${percent * 0.02 + 1}`);
-			}
-		}
-	});
-
 	function handleJoin(useEmail = true) {
 		if (email && useEmail) {
 			window.open(
@@ -89,6 +70,14 @@
 	/></a
 >
 
+<div>
+	<div
+		style="position: absolute; top: 0; right: 10px; border: 0; width: 256px; z-index: 999; transform: scaleX(-1);"
+	>
+		<img src="/star.svg" alt="Hack Club" />
+	</div>
+</div>
+
 <section class="hero">
 	<div class="hero-content">
 		<img
@@ -133,10 +122,10 @@
 			<div class="page-content">
 				<h3>Reviving other projects</h3>
 				<p>
-					Someone built their project at 2am with Excitement. Then the hackathon ended, School started again,
-					and the repo went quiet. But the code and the idea of the author are still there. Inherit
-					gives abandoned Hack Club projects a second life and rewards the teen who brings them
-					back
+					Someone built their project at 2am with excitement. Then the hackathon ended, school
+					started again, and the repo went quiet. But the code and the idea of the author are still
+					there. Inherit gives abandoned Hack Club projects a second life and rewards the teen who
+					brings them back.
 				</p>
 			</div>
 		</div>
@@ -486,7 +475,7 @@
 		--brown-mid: #bb723b;
 		--brown-light: #fcc296;
 		--text: #1a0f05;
-		--text-muted: #4a2e14;
+		--text-muted: #2e1c0c;
 		--font: 'Phantom Sans', sans-serif;
 	}
 
@@ -669,6 +658,18 @@
 		padding-top: 0;
 		align-items: center;
 		background: url('/bg.svg') center / cover no-repeat;
+
+		&:nth-child(5) {
+			background: url('/bg_smiley.svg') center / cover no-repeat !important;
+		}
+
+		&:nth-child(7) {
+			background: url('/bg_comment.svg') center / cover no-repeat !important;
+		}
+
+		&:nth-child(10) {
+			background: url('/bg_faq.svg') center / cover no-repeat !important;
+		}
 
 		> div {
 			width: 100%;
@@ -900,6 +901,7 @@
 	footer {
 		background-color: var(--bg);
 		border-top: 1px solid rgba(126, 71, 31, 0.15);
+		padding-top: 4vh;
 
 		.footer-tiles {
 			position: relative;
