@@ -52,4 +52,4 @@ MIT License
 
 ---
 
-**Made with ❤️ by [Matthias Schreiber](https://hackclub.enterprise.slack.com/user/@U0A2L4NMA9X)**  
+**Made with ♥ by [Matthias Schreiber](https://hackclub.enterprise.slack.com/user/@U0A2L4NMA9X)**  
