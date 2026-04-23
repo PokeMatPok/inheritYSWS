@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { dev } from '$app/environment';
 
 	let scrollTop = $state(0);
 
@@ -17,6 +19,16 @@
 	});
 
 	function handleJoin(useEmail = true) {
+		// in development, should not run in prod
+		if (email && useEmail) {
+			window.location.href = dev ?'http://localhost:3000/auth/login?email=' + encodeURIComponent(email) : 'https://inherit.dino.icu/api/auth/login?email=' + encodeURIComponent(email);
+		} else {
+			window.location.href = dev ? 'http://localhost:3000/auth/login' : 'https://inherit.dino.icu/api/auth/login';
+		}
+
+
+		// deprecated, kept for reference, should not run in prod
+		/*
 		if (email && useEmail) {
 			window.open(
 				`https://forms.fillout.com/t/mVAGqpQTbEus?embed=0&email=${encodeURIComponent(email)}`,
@@ -24,10 +36,26 @@
 			);
 		} else {
 			window.open('https://forms.fillout.com/t/mVAGqpQTbEus?embed=0', '_blank');
-		}
+		}*/
 	}
 
 	onMount(() => {
+		// check auth, redirect to /home if authd
+		fetch(dev ? 'http://localhost:3000/auth/check' : 'https://inherit.dino.icu/api/auth/check', {
+			credentials: 'include',
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				if (data.authenticated) {
+					goto(resolve('/home'));
+				}
+			})
+			.catch((err) => {
+				console.error('Error checking auth:', err);
+			});
+
 		scrollHeight =
 			document.documentElement.scrollHeight || document.querySelector('section')?.scrollHeight || 0;
 
@@ -57,9 +85,11 @@
 
 		handleScroll();
 
+		/*
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
+		*/
 	});
 </script>
 
@@ -72,7 +102,7 @@
 >
 
 <div class="manual-sticky">
-	<a href="/manual">Read the Manual</a>
+	<a href={resolve('/manual')}>Read the Manual</a>
 </div>
 
 <div>
@@ -399,7 +429,7 @@
 				</details>
 				<div>
 					<span>Other questions?</span>
-					<a href="/manual#faq">Check the manual</a>
+					<a href={resolve('/manual#faq')}>Check the manual</a>
 					<span>or</span>
 					<a href="https://hackclub.enterprise.slack.com/user/@U0A2L4NMA9X" target="_blank"
 						>Reach out</a
@@ -427,7 +457,7 @@
 			<div class="buttons">
 				<div>
 					<button class="cta" onclick={() => handleJoin(false)}> Join </button>
-					<button onclick={() => goto('/manual')}> Read the Manual </button>
+					<button onclick={() => goto(resolve('/manual'))}> Read the Manual </button>
 				</div>
 			</div>
 		</div>
@@ -450,27 +480,9 @@
 	@font-face {
 		font-family: 'Phantom Sans';
 		src:
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff') format('woff'),
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2') format('woff2');
+			url('/Phantom_Sans_0.7_Bold.woff') format('woff'),
+			url('/Phantom_Sans_0.7_Bold.woff2') format('woff2');
 		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-	@font-face {
-		font-family: 'Phantom Sans';
-		src:
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff') format('woff'),
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2') format('woff2');
-		font-weight: normal;
-		font-style: italic;
-		font-display: swap;
-	}
-	@font-face {
-		font-family: 'Phantom Sans';
-		src:
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff') format('woff'),
-			url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2') format('woff2');
-		font-weight: bold;
 		font-style: normal;
 		font-display: swap;
 	}
@@ -640,9 +652,9 @@
 		box-shadow: 3px 3px 0px var(--brown-dark);
 		margin: 0 10px;
 		transition:
-				background-color 0.15s ease,
-				border-color 0.15s ease,
-				color 0.15s ease;
+			background-color 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
 
 		&:hover {
 			background-color: var(--brown-light);
