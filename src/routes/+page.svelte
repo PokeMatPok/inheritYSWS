@@ -138,7 +138,7 @@
 			<div class="buttons">
 				<div>
 					<input type="email" placeholder="Enter your email" class="cta-input" bind:value={email} />
-					<button class="cta" onclick={() => handleJoin()}> Join </button>
+					<button class="cta" onclick={() => handleJoin()}> RSVP <span hidden> post release note: need to replace RSVP with Join</span></button>
 				</div>
 				<button hidden class="demo">Watch Demo</button>
 			</div>
@@ -456,7 +456,7 @@
 
 			<div class="buttons">
 				<div>
-					<button class="cta" onclick={() => handleJoin(false)}> Join </button>
+					<button class="cta" onclick={() => handleJoin(false)}> RSVP <span hidden> post release note: need to replace RSVP with Join</span> </button>
 					<button onclick={() => goto(resolve('/manual'))}> Read the Manual </button>
 				</div>
 			</div>
