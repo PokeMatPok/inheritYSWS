@@ -53,9 +53,10 @@
 			<img src="/inherit-logo.svg" alt="Inherit logo" style="width: 200px; height: auto;" />
 
 			<div class="text">
-				<h1>Hooray!</h1>
-				<p>You officially RSVP'd for Inherit!</p>
-				<p>Check your slack, you should have got a message from Orpheus!</p>
+				<h1>You're In!</h1>
+				<p>You're on the waitlist!</p>
+				<p>We'll notify you on launch. In the meantime, check your DMs</p>
+				<p>Orpheus should have sent you a welcome message!</p>
 			</div>
 		</div>
 	</div>
