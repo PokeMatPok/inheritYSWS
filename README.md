@@ -4,7 +4,7 @@
 
 **Give abandoned open source projects a second life.**
 
-[Visit Inherit](https://inherit.dino.icu/) • [Read the Manual](https://inherit.dino.icu/manual)
+[Visit Inherit](https://inherit.dino.icu/) • [Visit the backend repo](https://github.com/PokeMatPok/inheritYSWS-backend/)
 
 ## What is Inherit?
 
