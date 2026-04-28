@@ -3,8 +3,11 @@
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
+	import RsvpModal from '$lib/rsvpModal.svelte';
 
 	let scrollTop = $state(0);
+
+	let activeRsvpModal: { openRsvpModal: (enteredEmail?: string) => void } | null = null;
 
 	let scrollHeight = 0;
 	let clientHeight = 0;
@@ -18,26 +21,6 @@
 		}
 	});
 
-	function handleJoin(useEmail = true) {
-		// in development, should not run in prod
-		if (email && useEmail) {
-			window.location.href = dev ?'http://localhost:3000/auth/login?email=' + encodeURIComponent(email) : 'https://inherit.dino.icu/api/auth/login?email=' + encodeURIComponent(email);
-		} else {
-			window.location.href = dev ? 'http://localhost:3000/auth/login' : 'https://inherit.dino.icu/api/auth/login';
-		}
-
-
-		// deprecated, kept for reference, should not run in prod
-		/*
-		if (email && useEmail) {
-			window.open(
-				`https://forms.fillout.com/t/mVAGqpQTbEus?embed=0&email=${encodeURIComponent(email)}`,
-				'_blank'
-			);
-		} else {
-			window.open('https://forms.fillout.com/t/mVAGqpQTbEus?embed=0', '_blank');
-		}*/
-	}
 
 	onMount(() => {
 		// check auth, redirect to /home if authd
@@ -93,6 +76,8 @@
 	});
 </script>
 
+<RsvpModal bind:this={activeRsvpModal} />
+
 <a href="https://hackclub.com/"
 	><img
 		style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;"
@@ -138,7 +123,7 @@
 			<div class="buttons">
 				<div>
 					<input type="email" placeholder="Enter your email" class="cta-input" bind:value={email} />
-					<button class="cta" onclick={() => handleJoin()}> RSVP <span hidden> post release note: need to replace RSVP with Join</span></button>
+					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal(email)}> RSVP <span hidden> post release note: need to replace RSVP with Join</span></button>
 				</div>
 				<button hidden class="demo">Watch Demo</button>
 			</div>
@@ -456,7 +441,7 @@
 
 			<div class="buttons">
 				<div>
-					<button class="cta" onclick={() => handleJoin(false)}> RSVP <span hidden> post release note: need to replace RSVP with Join</span> </button>
+					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal()}> RSVP <span hidden> post release note: need to replace RSVP with Join</span> </button>
 					<button onclick={() => goto(resolve('/manual'))}> Read the Manual </button>
 				</div>
 			</div>
