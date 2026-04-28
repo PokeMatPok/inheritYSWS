@@ -76,6 +76,8 @@
 	});
 </script>
 
+<title>Revive Abandoned Projects - Inherit</title>
+
 <RsvpModal bind:this={activeRsvpModal} />
 
 <a href="https://hackclub.com/"

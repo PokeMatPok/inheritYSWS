@@ -34,6 +34,8 @@
 	});
 </script>
 
+<title>Thanks for RSVPing! - Inherit</title>
+
 <svelte:head>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.9.1/tsparticles.confetti.bundle.min.js"

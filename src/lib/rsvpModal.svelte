@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
+	import { onMount } from 'svelte';
 	import StylizedBox from './stylizedBox.svelte';
 
 	let userEmail: string | undefined;
@@ -11,6 +12,10 @@
 		showRsvpModal = true;
 
 		console.log('Opening RSVP modal with email:', userEmail);
+	}
+
+	export function closeRsvpModal() {
+		showRsvpModal = false;
 	}
 
 	function handleJoin(method = 'hackclub' as 'hackclub' | 'fillout') {
@@ -35,6 +40,14 @@
 			}
 		}
 	}
+
+	onMount(() => {
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape" && showRsvpModal) {
+				closeRsvpModal();
+			}
+		});
+	})
 </script>
 
 {#if showRsvpModal}
@@ -44,7 +57,7 @@
 		type="button"
 		class="backdrop"
 		aria-label="Close RSVP modal"
-		onclick={() => (showRsvpModal = false)}
+		onclick={() => closeRsvpModal()}
 	></button>
 
 	<StylizedBox class="rsvp-modal">
