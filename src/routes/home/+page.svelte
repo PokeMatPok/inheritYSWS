@@ -2,7 +2,7 @@
 	import StylizedBox from '$lib/stylizedBox.svelte';
 	import { onMount } from 'svelte';
 
-	let contentElement: HTMLDivElement;
+	let contentElement: HTMLDivElement | null = $state(null);
 
 	type ConfettiFn = (options: {
 		particleCount: number;
@@ -29,7 +29,7 @@
 		contentElement.addEventListener('animationend', handleAnimationEnd);
 
 		return () => {
-			contentElement.removeEventListener('animationend', handleAnimationEnd);
+			contentElement?.removeEventListener('animationend', handleAnimationEnd);
 		};
 	});
 </script>
@@ -50,7 +50,7 @@
 		style="width: 200px; height: auto;"
 	/>
 
-	<StylizedBox class="box" bind:element={contentElement}>
+	<StylizedBox class="box" bind:element={contentElement as HTMLDivElement}>
 		<img src="/inherit-logo.svg" alt="Inherit logo" style="width: 200px; height: auto;" />
 
 		<div class="text">

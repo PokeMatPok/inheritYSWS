@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import RsvpModal from '$lib/rsvpModal.svelte';
+	import type { User } from '$lib/types.js';
 
 	let scrollTop = $state(0);
 
@@ -14,6 +15,9 @@
 	let scrollPercent = $derived((scrollTop / (scrollHeight - clientHeight)) * 100);
 	let email = $state('');
 
+	let showRsvpIndicator = $state(false);
+	let RsvpName = $state('');
+
 	$effect(() => {
 		const heroElement: HTMLElement | null = document.querySelector('.hero');
 		if (heroElement) {
@@ -21,18 +25,18 @@
 		}
 	});
 
-
 	onMount(() => {
 		// check auth, redirect to /home if authd
 		fetch(dev ? 'http://localhost:3000/auth/check' : 'https://inherit.dino.icu/api/auth/check', {
-			credentials: 'include',
+			credentials: 'include'
 		})
 			.then((res) => {
 				return res.json();
 			})
-			.then((data) => {
+			.then((data: { authenticated: boolean; user: User }) => {
 				if (data.authenticated) {
-					goto(resolve('/home'));
+					showRsvpIndicator = true;
+					RsvpName = data.user.firstName;
 				}
 			})
 			.catch((err) => {
@@ -88,9 +92,16 @@
 	/></a
 >
 
-<div class="manual-sticky">
-	<a href={resolve('/manual')}>Read the Manual</a>
+<div class="link-sticky">
+	<a href={resolve('/submitProject')}>Submit my project</a>
 </div>
+
+{#if showRsvpIndicator}
+	<div class="rsvp-sticky">
+		<span>Hey {RsvpName}!</span>
+		<img src="/star.svg" alt="Star" style="width: 20px; height: auto; margin-left: 5px;" />
+	</div>
+{/if}
 
 <div>
 	<div
@@ -125,7 +136,9 @@
 			<div class="buttons">
 				<div>
 					<input type="email" placeholder="Enter your email" class="cta-input" bind:value={email} />
-					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal(email)}> RSVP <span hidden> post release note: need to replace RSVP with Join</span></button>
+					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal(email)}>
+						RSVP <span hidden> post release note: need to replace RSVP with Join</span></button
+					>
 				</div>
 				<button hidden class="demo">Watch Demo</button>
 			</div>
@@ -443,7 +456,9 @@
 
 			<div class="buttons">
 				<div>
-					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal()}> RSVP <span hidden> post release note: need to replace RSVP with Join</span> </button>
+					<button class="cta" onclick={() => activeRsvpModal?.openRsvpModal()}>
+						RSVP <span hidden> post release note: need to replace RSVP with Join</span>
+					</button>
 					<button onclick={() => goto(resolve('/manual'))}> Read the Manual </button>
 				</div>
 			</div>
@@ -625,6 +640,7 @@
 		opacity: 0.06;
 		z-index: 0;
 		background-position: 0 var(--scroll-percent, 0%);
+		will-change: background-position;
 	}
 
 	button {
@@ -978,7 +994,7 @@
 		}
 	}
 
-	.manual-sticky {
+	.link-sticky {
 		position: fixed;
 		bottom: 1.5rem;
 		right: 1.5rem;
@@ -1000,5 +1016,21 @@
 				transform: translateY(-2px);
 			}
 		}
+	}
+
+	.rsvp-sticky {
+		position: fixed;
+		top: 1.5rem;
+		right: 1.5rem;
+		z-index: 999;
+		background-color: var(--brown-mid);
+		color: var(--text);
+		border-radius: 30px;
+		padding: 0.8rem 1.5rem;
+		font-size: 0.95rem;
+		box-shadow: 3px 3px 0px var(--brown-dark);
+		display: flex;
+		align-items: center;
+		gap: 5px;
 	}
 </style>

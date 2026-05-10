@@ -18,7 +18,7 @@
 		showRsvpModal = false;
 	}
 
-	function handleJoin(method = 'hackclub' as 'hackclub' | 'fillout') {
+	export function handleJoin(method = 'hackclub' as 'hackclub' | 'fillout') {
 		if (method === 'hackclub') {
 			if (userEmail) {
 				window.location.href = dev
